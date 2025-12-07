@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Personas>
+
+<h2>Resultados de búsqueda</h2>
+
+<p>
+    <a asp-action="Buscar">Nueva búsqueda</a> |
+    <a asp-action="Index">Volver al listado</a>
+</p>
+
+<table class="table">
+    <thead><tr><th>Nombre</th><th>Edad</th><th></th></tr></thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Nombre</td>
+                <td>@p.Edad</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@p.Id">Detalles</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
